@@ -17,6 +17,6 @@ int data_size(){
 	return 0;
 }
 
-void main(){
+void display_data_size(){
 	data_size();
 }
