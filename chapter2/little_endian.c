@@ -37,10 +37,26 @@ void show_pointer(void *x){
 }
 
 void main(){
+/*
 	void *p = malloc(sizeof(void *));
 	show_int(1);
 	show_float(1);
 	show_pointer(p);
 	printf("%.2x\n",p);
+*/
+	
+	int hexadecimal[2];
+	printf("enter a hexadecimal\n");
+	scanf("%x",&hexadecimal[0]);
+	scanf("%x",&hexadecimal[1]);
+	printf("%x,%x\n",hexadecimal[0],hexadecimal[1]);
+	printf("%x\n",*((char *)hexadecimal));
+	printf("%x\n",*((char *)(hexadecimal+1)));
+	printf("%x\n",*(((char *)hexadecimal)+1));
+/* 	show_int(hexadecimal[0]);
+	show_int(hexadecimal[1]); */
+	
 }
+
+
 
