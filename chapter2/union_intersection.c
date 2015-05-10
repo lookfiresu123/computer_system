@@ -1,74 +1,87 @@
 /* 用bit位求并集或交集，针对不存在重复数的集合 */
-/* 范围为：0,1,...,9 */
+/* 颜色color */
 /* int a = '\0'相当于 int a = (int)'\0' = 0:查看acsii */
 
 
 #include<stdio.h>
+#include<string.h>
 
-int Input(int set[]){
-	char a;
-	int i=0;
-	while(1){
-cont:
-		a = getchar();
-		if((a != '\n') && (a != ' ') && (a != ',')){
-			set[i] = a - '0';
-			i++;
-		}
-		if(a == '\n')
-			goto out;
-		if(a == ' ' || a== ',')
-			goto cont;
-	}
-out:
-	set[i] = -1;
-	return 0;
-}
+int rgb_len = 3;//默认值
+
+
+
+typedef struct {
+	//int rgb_len;
+	//int rgb[rgb_len];
+	int *rgb;
+	char *color;
+} COLOR_RGB;   //三原色结构体
+
+typedef struct {
+	COLOR_RGB *content;
+	struct Node *next;
+}Node;
+
+typedef struct {
+	int LEN_color;//color的长度
+	int bitlen;//位的长度
+} LENGTH;    //长度
+
+const char *color[]= {"black","blue","green","cyan","red","magenta","yellow","white"};
+
+#define M_LEN_bit(len,i) do {	len % 2;   \
+							len = len / 2;   \
+							i++;     \
+						}while(len != 0);i--;
+						
+#define M_LEN_COLOR(color,i) while(color[i]){ i=i+1; } i--;
 
 void Union_intersection(){
-	int u1[100],u2[100];
-	int set1[10],set2[10];
-	int ret_union[10];
-	int ret_intersection[10];
-	printf("input a set of number\n");
-	Input(u1);
-	printf("input another set of number\n");
-	Input(u2);
-	int i = 0;
-
-	//初始化
-	for(i=0;i<10;i++)
-		set1[i] = set2[i] = 0;
+	/* 定义并初始化8种三原色结构体 */
+	LENGTH *length = (LENGTH *)malloc(sizeof(LENGTH));
+	length->LEN_color = 0;
+	length->bitlen = 0;
+	COLOR_RGB *color_rgb;
+	Node *current,*head;
+	head = current;//将current的初始地址保存在head里
+	//Node node;
+	//list->head = list->current = list->next = NULL;
+	COLOR_RGB *buffer;
+	int i;
+	//printf("%d\n",strlen(color));
+	//printf("%s\n",color[7]);
+	M_LEN_COLOR(color,length->LEN_color);
+	int temp = length->LEN_color;
+	M_LEN_bit(temp,length->bitlen);
+	//printf("%d,%d\n",length->LEN_color,length->bitlen);
+	for(i=0;i<length->LEN_color;i++){
+		Node *node = (Node *)malloc(sizeof(Node));
+		current = node;
+		color_rgb = (COLOR_RGB *)malloc(sizeof(COLOR_RGB));
+		color_rgb->color = color[i];
+		//color_rgb->rgb_len = length->bitlen;
+		rgb_len = length->bitlen;
+		//color_rgb = (COLOR_RGB *)malloc(sizeof(COLOR_RGB));
+		int j;
+		int k = i;
+		int rgb_temp[length->LEN_color][rgb_len];
+		for(j=rgb_len-1;j>=0;j--){
+			rgb_temp[i][j] = k % 2;
+			k = k / 2;
+		}
+		color_rgb->rgb = rgb_temp[i];
+		//list->head = color_rgb;
+		current->content = color_rgb;
+		current->next = NULL;
+		printf("%s : %d%d%d\n",current->content->color,*(current->content->rgb),*(current->content->rgb+1),*(current->content->rgb+2));
+		current = current->next;
 		
-	i = 0;	
-	while(u1[i] != -1){
-		set1[u1[i]] = 1;
-		i++;
 	}
-	i = 0;
-	while(u2[i] != -1){
-		set2[u2[i]] = 1;
-		i++;
-	}
-	
-	//按位与和或
-	for(i=0;i<10;i++){
-		ret_union[i] = set1[i] | set2[i];
-		ret_intersection[i] = set1[i] & set2[i];
-	}
-	
-	printf("并集为：{ ");
-	for(i=0;i<10;i++){
-		if(ret_union[i] == 1)
-			printf("%d ",i);
-	}
-	printf("}\n");
-	
-	printf("交集为：{ ");
-	for(i=0;i<10;i++){
-		if(ret_intersection[i] == 1)
-			printf("%d ",i);
-	}
-	printf("}\n");	
+	current = head;
+	//printf("%s\n",current->content->color);
+	// while(current){
+		// printf("%s : %d%d%d\n",current->content->color,*(current->content->rgb),*(current->content->rgb+1),*(current->content->rgb+2));
+		// current = current->next;
+	// }
 }
 

@@ -5,7 +5,7 @@
 
 void main(){
 	//display_string();
-	//Union_intersection();
+	Union_intersection();
 	//printf("%d\n",'0'-'0');
-	union_intersection_advance();
+	//union_intersection_advance();
 }
