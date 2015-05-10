@@ -1,0 +1,18 @@
+<NotepadPlus>
+    <Project name="works_1">
+        <File name="chapter2\boolean_algebra.c" />
+        <File name="chapter2\data_size.c" />
+        <File name="chapter2\d_to_h.pl" />
+        <File name="chapter2\h_to_d.pl" />
+        <File name="chapter2\little_endian.c" />
+        <File name="chapter2\little_endian.h" />
+        <File name="chapter2\main.c" />
+        <File name="chapter2\makefile" />
+        <File name="chapter2\string.c" />
+        <File name="chapter2\string.h" />
+        <File name="chapter2\union_intersection.c" />
+        <File name="chapter2\union_intersection.h" />
+        <File name="chapter2\union_intersection_advance.c" />
+        <File name="chapter2\union_intersection_advance.h" />
+    </Project>
+</NotepadPlus>
