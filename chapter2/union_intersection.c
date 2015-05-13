@@ -72,9 +72,75 @@ void Union_intersection(){
 		current->next = NULL;		
 	}
 	current = head->next;
+	
+	printf("输入两种颜色\n");
+	char color1[10];
+	char color2[10];
+	scanf("%s",color1);
+	scanf("%s",color2);
+	i=0;
+	
+	Node *p1;
+	Node *p2;
+	
 	while(current){
-		printf("%s : %d %d %d\n",current->content->color,*(current->content->rgb),*(current->content->rgb+1),*(current->content->rgb+2));
+		i=0;
+		int flag_temp = 1;
+		while(color1[i] != '\0'){
+			if(color1[i] != *(current->content->color+i)){
+				flag_temp = 0;
+				break;
+			}
+			i++;
+		}
+		if(flag_temp == 1){
+			p1 = current;
+		}
+		i=0;
+		flag_temp = 1;
+		while(color2[i] != '\0'){
+			if(color2[i] != *(current->content->color+i)){
+				flag_temp = 0;
+				break;
+			}
+			i++;
+		}
+		if(flag_temp == 1){
+			p2 = current;
+		}
+		//i=0;
 		current = current->next;
 	}
+	i = 0;
+	//Node *result = (Node *)malloc(sizeof(Node));
+	int result_rgb[rgb_len];
+	//result->content->rgb = (int *)malloc(rgb_len*sizeof(int));
+	//result->next = NULL;
+	for(i=0;i<rgb_len;i++){
+		result_rgb[i] = *(p1->content->rgb+i) | *(p2->content->rgb+i);
+	}
+	current = head->next;
+	//printf("%s\n",current->content->color);
+	int flag = 1;
+	while(current){
+		for(i=0;i<rgb_len;i++){
+			//printf("%d",*(current->content->rgb+i));
+			if(result_rgb[i] != *(current->content->rgb+i)){
+				flag = 0;
+				break;
+			}
+		}
+		//printf("\n");
+		if(flag == 1){
+			//result->content->color = current->content->color;
+			break;
+		}
+		else{
+			flag = 1;
+			current = current->next;
+		}
+	}
+	printf("%s\n",current->content->color);
+	
 }
 
