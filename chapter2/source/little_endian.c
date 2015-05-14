@@ -2,7 +2,7 @@
 /* 某个类型的指针实际上是一组连续的字节序列（长度待定） */
 
 #include<stdio.h>
-#include"little_endian.h"
+#include"../header/little_endian.h"
 
 void self(){
 	int i;

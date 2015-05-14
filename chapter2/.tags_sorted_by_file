@@ -1,0 +1,44 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+main	boolean_algebra.c	/^void main(){$/;"	f
+data_size	data_size.c	/^int data_size(){$/;"	f
+display_data_size	data_size.c	/^void display_data_size(){$/;"	f
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+display_little_endian	little_endian.c	/^void display_little_endian(){$/;"	f
+self	little_endian.c	/^void self(){$/;"	f
+show_bytes	little_endian.c	/^void show_bytes(byte_pointer start,int len){$/;"	f
+show_float	little_endian.c	/^void show_float(float x){$/;"	f
+show_int	little_endian.c	/^void show_int(int x){$/;"	f
+show_pointer	little_endian.c	/^void show_pointer(void *x){$/;"	f
+byte_pointer	little_endian.h	/^typedef unsigned char *byte_pointer;$/;"	t
+main	main.c	/^void main(){$/;"	f
+objects	makefile	/^objects = main.o string.o little_endian.o union_intersection.o union_intersection_advance.o$/;"	m
+display_string	string.c	/^void display_string(){$/;"	f
+COLOR_RGB	union_intersection.c	/^typedef struct COLOR_RGB{$/;"	s	file:
+COLOR_RGB	union_intersection.c	/^} COLOR_RGB;   \/\/三原色结构体$/;"	t	typeref:struct:COLOR_RGB	file:
+LENGTH	union_intersection.c	/^typedef struct LENGTH{$/;"	s	file:
+LENGTH	union_intersection.c	/^} LENGTH;    \/\/长度$/;"	t	typeref:struct:LENGTH	file:
+LEN_color	union_intersection.c	/^	int LEN_color;\/\/color的长度$/;"	m	struct:LENGTH	file:
+M_LEN_COLOR	union_intersection.c	37;"	d	file:
+M_LEN_bit	union_intersection.c	32;"	d	file:
+Node	union_intersection.c	/^typedef struct Node{$/;"	s	file:
+Node	union_intersection.c	/^}Node;$/;"	t	typeref:struct:Node	file:
+Union_intersection	union_intersection.c	/^void Union_intersection(){$/;"	f
+bitlen	union_intersection.c	/^	int bitlen;\/\/位的长度$/;"	m	struct:LENGTH	file:
+color	union_intersection.c	/^	char *color;$/;"	m	struct:COLOR_RGB	file:
+color	union_intersection.c	/^const char *color[]= {"black","blue","green","cyan","red","magenta","yellow","white"};$/;"	v
+content	union_intersection.c	/^	COLOR_RGB *content;$/;"	m	struct:Node	file:
+next	union_intersection.c	/^	struct Node *next;$/;"	m	struct:Node	typeref:struct:Node::Node	file:
+rgb	union_intersection.c	/^	int *rgb;$/;"	m	struct:COLOR_RGB	file:
+rgb_len	union_intersection.c	/^int rgb_len = 3;\/\/默认值$/;"	v
+CODE	union_intersection_advance.c	/^}CODE;$/;"	t	typeref:struct:__anon1	file:
+LEN	union_intersection_advance.c	/^int LEN = 62; \/\/paramters的长度和交并集的总位数$/;"	v
+Transation	union_intersection_advance.c	/^int Transation(int vector[]){$/;"	f
+Transation_Single	union_intersection_advance.c	/^int Transation_Single(char ch){$/;"	f
+ch	union_intersection_advance.c	/^	char ch;$/;"	m	struct:__anon1	file:
+paramters	union_intersection_advance.c	/^CODE paramters[] = {$/;"	v
+pos	union_intersection_advance.c	/^	int pos;$/;"	m	struct:__anon1	file:
+union_intersection_advance	union_intersection_advance.c	/^int union_intersection_advance(){$/;"	f

@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
-#include"little_endian.h"
-#include"string.h"
+#include"../header/little_endian.h"
+#include"../header/string.h"
 
 void display_string(){
 	const char *s = "abcdef";
