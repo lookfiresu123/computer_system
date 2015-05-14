@@ -27,7 +27,7 @@ int Binary_to_Decimal(int binary[],int length){
         }
         Decimal = Decimal + (binary[i] * exp);
     }
-    printf("%d\n",Decimal);
+    //printf("%d\n",Decimal);
     return Decimal;
 }
 
