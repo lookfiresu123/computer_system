@@ -12,5 +12,5 @@ void main(){
 	//union_intersection_advance();
 	//swap();
 	//or_xor_bis_bic();
-	build_equivalence();
+	test();
 }

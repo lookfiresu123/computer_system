@@ -1,9 +1,15 @@
 /* switch from decimal to hexadecimal and binary */
 #include<stdio.h>
 
-void Decimal_to_Binary(int decimal){
-    int binary[100];
+int array_size = 32;
+
+void Decimal_to_Binary(unsigned int decimal){
+    unsigned int binary[array_size];
+    //initial
     int i=0;
+    for(i=0;i<array_size;i++)
+        binary[i] = 0;
+    i=0;
     int j;
     while((decimal / 2) != 0){
         binary[i] = decimal % 2;
@@ -11,14 +17,14 @@ void Decimal_to_Binary(int decimal){
         i++;
     }
     binary[i] = decimal % 2;
-    for(j=i;j>=0;j--){
+    for(j=array_size-1;j>=0;j--){
         printf("%d",binary[j]);
     }
     printf("\n");
 }
 
-int Binary_to_Decimal(int binary[],int length){
-    int Decimal = 0;
+unsigned int Binary_to_Decimal(unsigned int binary[],int length){
+    unsigned int Decimal = 0;
     int i,j;
     for(i=0;i<length;i++){
         int exp = 1;
@@ -32,8 +38,8 @@ int Binary_to_Decimal(int binary[],int length){
 }
 
 void Decimal_to_Hexadecimal(int decimal){
-    int Hexadecimal[100];
-    char hexadecimal[100];
+    int Hexadecimal[array_size];
+    char hexadecimal[array_size];
     int i=0;
     int j;
     while((decimal / 16) != 0){
