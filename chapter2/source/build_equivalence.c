@@ -59,7 +59,7 @@ void shift_right(unsigned int a){
 void test(){
 	unsigned int a;
 	printf("input a number\n");
-	scanf("%d",&a);
+	scanf("%x",&a);
 	printf("shift_left: \n");
 	shift_left(a);
 	printf("shift_left: \n");
