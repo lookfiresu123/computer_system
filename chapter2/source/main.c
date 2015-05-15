@@ -11,5 +11,6 @@ void main(){
 	//printf("%d\n",'0'-'0');
 	//union_intersection_advance();
 	//swap();
-	or_xor_bis_bic();
+	//or_xor_bis_bic();
+	build_equivalence();
 }
