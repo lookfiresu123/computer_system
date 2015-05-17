@@ -1,7 +1,17 @@
 /* switch from decimal to hexadecimal and binary */
 #include<stdio.h>
+#include<math.h>
 
 int array_size = 32;
+
+int pow_vary(int x,int y){
+    int result = 1;
+    int i;
+    for(i=0;i<y;i++){
+        result = result * x;
+    }
+    return result;
+}
 
 void Decimal_to_Binary(unsigned int decimal){
     unsigned int binary[array_size];
@@ -21,6 +31,17 @@ void Decimal_to_Binary(unsigned int decimal){
         printf("%d",binary[j]);
     }
     printf("\n");
+}
+
+int Binary_to_Decimal_signed(int binary[],int length){
+    int Decimal = 0;
+    int i,j;
+    int temp = 0 - binary[length-1] * pow_vary(2,length-1);
+    for(i=0;i<length-1;i++)
+        Decimal = Decimal + binary[i] * pow_vary(2,i);
+    Decimal = temp + Decimal;
+    printf("%d\n",Decimal);
+    return Decimal;
 }
 
 unsigned int Binary_to_Decimal(unsigned int binary[],int length){
@@ -88,80 +109,87 @@ void Hexadecimal_to_Binary(char hexadecimal[]){
 	Decimal_to_Binary(Hexadecimal_to_Decimal(hexadecimal));
 }
 
-// int main(){
-//     int decimal1;
-//     int decimal2;
-//     char binary[100];
-// 	char hexadecimal[100];
-//     int temp[100];
-// 	int i;
-// cont:    
-// 	printf("binary to decimal-----------input 1\n");
-//     printf("decimal to binary-----------input 2\n");
-//     printf("decimal to hexadecimal------input 3\n");
-//     printf("hexadecimal to decimal------input 4\n");
-//     printf("binary to hexadecimal-------input 5\n");
-//     printf("hexadecimal to binary-------input 6\n");
-// 	printf("exit -----------------------input 7\n");
-// 	scanf("%d",&i);
-//     switch(i){
-//     case 1:{
-//     	printf("please input a binary\n");
-//         scanf("%s",binary);
-//     	int i=0;
-//     	while(binary[i] != NULL){
-//         	temp[i] = binary[i] -'0';
-//         	i++;
-//     	}
-//     	Binary_to_Decimal(temp,i);
-// 		goto cont;
-// 		break;
-//     }
-//     case 2:{
-//     	printf("please input a integer\n");
-//     	scanf("%d",&decimal1);
-//     	Decimal_to_Binary(decimal1);
-// 		goto cont;
-// 		break;
-//     }
-//     case 3:{
-//     	printf("please input a decimal\n");
-//     	scanf("%d",&decimal1);
-//     	Decimal_to_Hexadecimal(decimal1);
-// 		goto cont;
-// 		break;
-//     }
-//     case 4:{
-//     	printf("please input a hexadecimal\n");
-// 		scanf("%s",hexadecimal);
-// 		Hexadecimal_to_Decimal(hexadecimal);
-// 		goto cont;
-// 		break;
-//     }
-//     case 5:{
-//     	printf("please input a binary\n");
-//         scanf("%s",binary);
-//     	int i=0;
-//     	while(binary[i] != NULL){
-//         	temp[i] = binary[i] -'0';
-//         	i++;
-//     	}
-//     	Binary_to_Hexadecimal(temp,i);
-// 		goto cont;
-// 		break;
-//     }
-//     case 6:{
-//     	printf("please input a hexadecimal\n");
-// 		scanf("%s",hexadecimal);
-// 		Hexadecimal_to_Binary(hexadecimal);
-// 		goto cont;
-// 		break;
-//     }
-// 	case 7:{
-// 		goto out;
-// 		break;
-//     }
-// 	}
-// out:
-//     return 0;
-// }
+int test_switch(){
+    int decimal1;
+    int decimal2;
+    char binary[100];
+	char hexadecimal[100];
+    int temp[100];
+	int i;
+cont:    
+	printf("binary to decimal-----------input 1\n");
+    printf("decimal to binary-----------input 2\n");
+    printf("decimal to hexadecimal------input 3\n");
+    printf("hexadecimal to decimal------input 4\n");
+    printf("binary to hexadecimal-------input 5\n");
+    printf("hexadecimal to binary-------input 6\n");
+	printf("exit -----------------------input 7\n");
+	scanf("%d",&i);
+    switch(i){
+    case 1:{
+    	printf("please input a binary\n");
+        scanf("%s",binary);
+    	int i=0;
+    	while(binary[i] != '\0'){
+        	temp[i] = binary[i] -'0';
+        	i++;
+    	}
+        printf("if unsigned input 1,else input 2'\n");
+        scanf("%d",&i);
+        if(i == 1)
+    	   Binary_to_Decimal(temp,i);
+        else if(i == 2)
+            Binary_to_Decimal_signed(temp,i);
+        else
+            printf("input error\n");
+		goto cont;
+		break;
+    }
+    case 2:{
+    	printf("please input a integer\n");
+    	scanf("%d",&decimal1);
+    	Decimal_to_Binary(decimal1);
+		goto cont;
+		break;
+    }
+    case 3:{
+    	printf("please input a decimal\n");
+    	scanf("%d",&decimal1);
+    	Decimal_to_Hexadecimal(decimal1);
+		goto cont;
+		break;
+    }
+    case 4:{
+    	printf("please input a hexadecimal\n");
+		scanf("%s",hexadecimal);
+		Hexadecimal_to_Decimal(hexadecimal);
+		goto cont;
+		break;
+    }
+    case 5:{
+    	printf("please input a binary\n");
+        scanf("%s",binary);
+    	int i=0;
+    	while(binary[i] != '\0'){
+        	temp[i] = binary[i] -'0';
+        	i++;
+    	}
+    	Binary_to_Hexadecimal(temp,i);
+		goto cont;
+		break;
+    }
+    case 6:{
+    	printf("please input a hexadecimal\n");
+		scanf("%s",hexadecimal);
+		Hexadecimal_to_Binary(hexadecimal);
+		goto cont;
+		break;
+    }
+	case 7:{
+		goto out;
+		break;
+    }
+	}
+out:
+    return 0;
+}

@@ -12,5 +12,6 @@ void main(){
 	//union_intersection_advance();
 	//swap();
 	//or_xor_bis_bic();
-	test();
+	//test();
+	test_switch();
 }
