@@ -13,5 +13,6 @@ void main(){
 	//swap();
 	//or_xor_bis_bic();
 	//test();
-	test_switch();
+	//test_switch();
+	test_convert();
 }
