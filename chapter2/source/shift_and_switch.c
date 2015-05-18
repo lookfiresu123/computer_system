@@ -10,7 +10,7 @@ int fun2(unsigned word){
 }
 
 unsigned short unsigned_32bit_to_16bit(unsigned int x){
-    unsigned short y = x % (unsigned int)pow(2,16);//unsigned x for w bits --> for w-k bits <==> unsigned x mod pow(2,k)
+    unsigned short y = x % (unsigned int)pow(2,16);//unsigned x for w bits --> for k bits <==> unsigned x mod pow(2,k)
     return y;
 }
 
