@@ -1,5 +1,5 @@
 objects = main.o string.o little_endian.o union_intersection.o union_intersection_advance.o swap.o switch.o \
-build_or_xor.o build_equivalence.o
+build_or_xor.o build_equivalence.o shift_and_switch.o
 
 vpath %.c source
 vpath %.h header
@@ -18,6 +18,7 @@ swap.o : switch.h
 switch.o :
 build_or_xor.o : switch.h
 build_equivalence.o : 
+shift_and_switch.o : 
 
 .PHONY : clean
 clean :
